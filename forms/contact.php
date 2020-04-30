@@ -1,13 +1,10 @@
-/*
 <?php
-   */
-/**
+  /**
   * Requires the "PHP Email Form" library
   * The "PHP Email Form" library is available only in the pro version of the template
   * The library should be uploaded to: vendor/php-email-form/php-email-form.php
   * For more info and help: https://bootstrapmade.com/php-email-form/
-  *//*
-
+  */
 
   // Replace contact@example.com with your real receiving email address
   $receiving_email_address = 'contact@example.com';
@@ -27,41 +24,18 @@
   $contact->subject = $_POST['subject'];
 
   // Uncomment below code if you want to use SMTP to send emails. You need to enter your correct SMTP credentials
-   */
-/*
+  /*
   $contact->smtp = array(
     'host' => 'example.com',
     'username' => 'example',
     'password' => 'pass',
     'port' => '587'
   );
-  *//*
-
+  */
 
   $contact->add_message( $_POST['name'], 'From');
   $contact->add_message( $_POST['email'], 'Email');
   $contact->add_message( $_POST['message'], 'Message', 10);
 
   echo $contact->send();
-?>
- */
-
-
-
-<?php
-
-if($_POST["submit"]) {
-    $recipient="yin.angela1@gmail.com";
-    $subject=$_POST["subject"];
-    $sender=$_POST["name"];
-    $senderEmail=$_POST["email"];
-    $message=$_POST["message"];
-
-    $mailBody="Name: $sender\nEmail: $senderEmail\n\n$message";
-
-    mail($recipient, $subject, $mailBody, "From: $sender <$senderEmail>");
-
-    $thankYou="<p>Thank you! Your message has been sent.</p>";
-}
-
 ?>
